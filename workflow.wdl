@@ -23,11 +23,7 @@ workflow merge_VCFs {
     }
     
     call run_merging {
-        input:
-        vcf_files=VCF_FILES,
-        sample_names = SAMPLE_NAMES,
-        group_name=GROUP_NAME,
-        sort_vcfs=SORT_VCFS
+        input: vcf_files=VCF_FILES, sample_names = SAMPLE_NAMES, group_name=GROUP_NAME, sort_vcfs=SORT_VCFS
     }
 
     output {
