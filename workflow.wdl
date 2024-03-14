@@ -34,15 +34,15 @@ workflow merge_VCFs {
 }
 
 task run_merging {
-	input {
-		Array[File] vcf_files
-		Array[String] sample_names = []
-		String group_name = 'samples'
-		Boolean sort_vcfs = false
-		Int memSizeGB = 8
-		Int threadCount = 2
-		Int diskSizeGB = 5*round(size(vcf_files, "GB")) + 20
-	}
+    input {
+        Array[File] vcf_files
+        Array[String] sample_names = []
+        String group_name = 'samples'
+        Boolean sort_vcfs = false
+        Int memSizeGB = 8
+        Int threadCount = 2
+        Int diskSizeGB = 5*round(size(vcf_files, "GB")) + 20
+    }
     
     command <<<
         set -eux -o pipefail
