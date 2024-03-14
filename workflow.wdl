@@ -21,11 +21,9 @@ workflow merge_VCFs {
         String GROUP_NAME = 'samples'
         Boolean SORT_VCFS = true
     }
-    
     call run_merging {
         input: vcf_files=VCF_FILES, sample_names = SAMPLE_NAMES, group_name=GROUP_NAME, sort_vcfs=SORT_VCFS
     }
-
     output {
         File merged_vcf = run_merging.vcf
         File merged_vcf_index = run_merging.vcf_index
