@@ -19,7 +19,7 @@ workflow merge_VCFs {
         Array[File] VCF_FILES
         Array[String] SAMPLE_NAMES = []
         String GROUP_NAME = 'samples'
-        Boolean SORT_VCFS = false
+        Boolean SORT_VCFS = true
     }
     
     call run_merging {
@@ -80,6 +80,7 @@ task run_merging {
             for FF in `cat vcf_list.txt`
             do
                 bcftools sort -m 2G -Oz -o samp_$FID.sorted.vcf.gz $FF
+		bcftools index -t -o samp_$FID.sorted.vcf.gz.tbi samp_$FID.sorted.vcf.gz
                 echo samp_$FID.sorted.vcf.gz >> vcf_list.sorted.txt
                 FID=$((FID+1))
             done
@@ -87,7 +88,7 @@ task run_merging {
         fi
         
         ## Run bcftools merge (without creating multi-allelics)
-        bcftools merge --no-index -m none -l vcf_list.txt --threads ~{threadCount} -Oz -o ~{group_name}.merged.vcf.gz
+        bcftools merge -m none -l vcf_list.txt --threads ~{threadCount} -Oz -o ~{group_name}.merged.vcf.gz
 
         ## Create index of merged VCF
         bcftools index -t -o ~{group_name}.merged.vcf.gz.tbi ~{group_name}.merged.vcf.gz
