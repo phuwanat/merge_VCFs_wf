@@ -42,7 +42,7 @@ task run_merging {
 		Int memSizeGB = 8
 		Int threadCount = 2
 		Int diskSizeGB = 5*round(size(vcf_files, "GB")) + 20
-    }
+	}
     
     command <<<
         set -eux -o pipefail
