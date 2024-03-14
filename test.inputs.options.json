@@ -1,0 +1,6 @@
+{
+  "merge_VCFs.VCF_FILES": ["test.samp1.vcf.gz", "test.samp2.vcf.gz"],
+  "merge_VCFs.SAMPLE_NAMES": ["s1", "s2"],
+  "merge_VCFs.GROUP_NAME": "test",
+  "merge_VCFs.SORT_VCFS": true  
+}

@@ -1,0 +1,3 @@
+{
+  "merge_VCFs.VCF_FILES": ["test.samp1.vcf.gz", "test.samp2.vcf.gz"]  
+}
