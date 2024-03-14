@@ -28,9 +28,7 @@ workflow merge_VCFs {
         File merged_vcf = run_merging.vcf
         File merged_vcf_index = run_merging.vcf_index
     }
-
 }
-
 task run_merging {
     input {
         Array[File] vcf_files
@@ -73,7 +71,7 @@ task run_merging {
             for FF in `cat vcf_list.txt`
             do
                 bcftools sort -m 2G -Oz -o samp_$FID.sorted.vcf.gz $FF
-		bcftools index -t -o samp_$FID.sorted.vcf.gz.tbi samp_$FID.sorted.vcf.gz
+                bcftools index -t -o samp_$FID.sorted.vcf.gz.tbi samp_$FID.sorted.vcf.gz
                 echo samp_$FID.sorted.vcf.gz >> vcf_list.sorted.txt
                 FID=$((FID+1))
             done
