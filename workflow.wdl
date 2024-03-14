@@ -3,7 +3,7 @@ version 1.0
 workflow merge_VCFs {
 
     meta {
-	author: "Shloka Negi"
+        author: "Shloka Negi"
         email: "shnegi@ucsc.edu"
         description: "Merge individual sample VCFs to create a unified multi-sample VCF, optionally allowing for modification of sample names."
     }
