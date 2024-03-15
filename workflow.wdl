@@ -95,7 +95,7 @@ task run_merging {
         cpu: threadCount
         disks: "local-disk " + diskSizeGB + " SSD"
         docker: "quay.io/biocontainers/bcftools@sha256:f3a74a67de12dc22094e299fbb3bcd172eb81cc6d3e25f4b13762e8f9a9e80aa"   # digest: quay.io/biocontainers/bcftools:1.16--hfe4b78e_1
-        preemptible: 2
+        preemptible: 0
     }
 
 }
